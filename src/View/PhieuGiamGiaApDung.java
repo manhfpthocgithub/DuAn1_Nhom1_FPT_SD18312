@@ -42,8 +42,8 @@ public class PhieuGiamGiaApDung extends javax.swing.JDialog {
                 Object[] row = new Object[5];
                 row[0] = pgg.getMaPhieuGiamGia();
                 row[1] = pgg.getTenPGG();
-                row[2] = pgg.getGiaTriPGG();
-                row[3] = pgg.getTongTienHang();
+                row[2] = String.format("%,d VNĐ", pgg.getGiaTriPGG());
+                row[3] = String.format("%,.0f VNĐ", pgg.getTongTienHang());
                 row[4] = pgg.isTrangThaiPGG() ? "Kích Hoạt" : "Chưa Kích Hoạt";
                 tblModel.addRow(row);
             }

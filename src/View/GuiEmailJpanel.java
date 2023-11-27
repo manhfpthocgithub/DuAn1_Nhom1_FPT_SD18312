@@ -51,16 +51,16 @@ public class GuiEmailJpanel extends javax.swing.JPanel {
     HoaDon hd;
 
     int row = 0;
+
     public GuiEmailJpanel() {
         initComponents();
-        
+
         fillTableEmail();
         fillTableEmailTichDiem();
         fillPhieuGiamGia();
     }
 
-   //EMAIL
-
+    //EMAIL
     void fillTableEmail() {
         DefaultTableModel tblModel = (DefaultTableModel) tblEmail.getModel();
         tblModel.setRowCount(0);
@@ -197,7 +197,7 @@ public class GuiEmailJpanel extends javax.swing.JPanel {
                 Object[] row = new Object[7];
                 row[0] = pgg.getMaPhieuGiamGia();
                 row[1] = pgg.getTenPGG();
-                row[2] = pgg.GiaTriPGG();
+                row[2] = pgg.getGiaTriPGG();
                 row[3] = String.format("%,.0f VNĐ", pgg.getTongTienHang());
                 row[4] = pgg.isTrangThaiPGG() ? "Kích Hoạt" : "Chưa Kích Hoạt";
                 row[5] = sd.format(pgg.getNgayTao());
@@ -492,30 +492,30 @@ public class GuiEmailJpanel extends javax.swing.JPanel {
         insertEmail();
         clearFormEmail();
         //        Session session = Session.getInstance(prop,
-            //                new javax.mail.Authenticator() {
-                //            protected PasswordAuthentication getPasswordAuthentication() {
-                    //                return new PasswordAuthentication(username, password);
-                    //            }
-                //        });
+        //                new javax.mail.Authenticator() {
+        //            protected PasswordAuthentication getPasswordAuthentication() {
+        //                return new PasswordAuthentication(username, password);
+        //            }
+        //        });
         //
         //        try {
-            //
-            //            Message message = new MimeMessage(session);
-            //            message.setFrom(new InternetAddress(txtEmailNhan.getText()));
-            //            message.setRecipients(
-                //                    Message.RecipientType.TO,
-                //                    InternetAddress.parse(txtEmailGui.getText())
-                //            );
-            //            message.setSubject(txtTieuDe.getText());
-            //            message.setText(txtNoiDung.getText());
-            //
-            //            Transport.send(message);
-            //            MsgBox.alert(this, "Hoàn Thành");
-            //            System.out.println("Done");
-            //
-            //        } catch (MessagingException e) {
-            //            e.printStackTrace();
-            //        }
+        //
+        //            Message message = new MimeMessage(session);
+        //            message.setFrom(new InternetAddress(txtEmailNhan.getText()));
+        //            message.setRecipients(
+        //                    Message.RecipientType.TO,
+        //                    InternetAddress.parse(txtEmailGui.getText())
+        //            );
+        //            message.setSubject(txtTieuDe.getText());
+        //            message.setText(txtNoiDung.getText());
+        //
+        //            Transport.send(message);
+        //            MsgBox.alert(this, "Hoàn Thành");
+        //            System.out.println("Done");
+        //
+        //        } catch (MessagingException e) {
+        //            e.printStackTrace();
+        //        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void tblTichDiem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTichDiem1MouseClicked

@@ -73,4 +73,8 @@ public class HoaDonChiTietDAO extends DuAn1DAO1<HoaDonChiTiet, Integer> {
         return JDBCHelper.executeUpdate(sql, soLuong, thanhTien, maHDCT);
     }
 
+    public void xoaHDCT(int maHDCT){
+        String sql = "DELETE FROM tblHoaDonChiTiet WHERE MaHoaDonChiTiet=?";
+         JDBCHelper.executeUpdate(sql, maHDCT);
+    }
 }

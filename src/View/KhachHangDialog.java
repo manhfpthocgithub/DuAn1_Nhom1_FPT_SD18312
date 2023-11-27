@@ -826,7 +826,7 @@ public class KhachHangDialog extends javax.swing.JDialog {
                 Object[] row = new Object[7];
                 row[0] = pgg.getMaPhieuGiamGia();
                 row[1] = pgg.getTenPGG();
-                row[2] = pgg.GiaTriPGG();
+                row[2] = pgg.getGiaTriPGG();
                 row[3] = String.format("%,.0f VNĐ", pgg.getTongTienHang());
                 row[4] = pgg.isTrangThaiPGG() ? "Kích Hoạt" : "Chưa Kích Hoạt";
                 row[5] = sd.format(pgg.getNgayTao());

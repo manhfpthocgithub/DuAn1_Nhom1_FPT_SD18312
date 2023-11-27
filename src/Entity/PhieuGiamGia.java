@@ -6,8 +6,8 @@ package Entity;
 
 import java.util.Date;
 
-
 public class PhieuGiamGia {
+
     private int MaPhieuGiamGia;
     private String TenPGG;
     private int GiaTriPGG;
@@ -16,7 +16,7 @@ public class PhieuGiamGia {
     private Date NgayTao;
     private Date NgayHetHan;
     private String GhiChu;
-    private String MaNV; 
+    private String MaNV;
 
     public PhieuGiamGia() {
     }
@@ -24,7 +24,7 @@ public class PhieuGiamGia {
     public PhieuGiamGia(int MaPhieuGiamGia, String TenPGG, int GiaTriPGG, double TongTienHang, boolean TrangThaiPGG, Date NgayTao, Date NgayHetHan, String GhiChu, String MaNV) {
         this.MaPhieuGiamGia = MaPhieuGiamGia;
         this.TenPGG = TenPGG;
-        this.GiaTriPGG = GiaTriPGG;       
+        this.GiaTriPGG = GiaTriPGG;
         this.TongTienHang = TongTienHang;
         this.TrangThaiPGG = TrangThaiPGG;
         this.NgayTao = NgayTao;
@@ -105,20 +105,8 @@ public class PhieuGiamGia {
         this.MaNV = MaNV;
     }
 
-    public String GiaTriPGG(){
-        if(GiaTriPGG >1000){
-            return GiaTriPGG + ".đ"; 
-        }else if(GiaTriPGG <100){
-            return GiaTriPGG +"%";
-        }else{
-            return GiaTriPGG + ".đ";
-        }   
-    }
-
     @Override
-   public String toString() {
-       return this.GiaTriPGG();
+    public String toString() {
+        return ""+GiaTriPGG;
     }
 }
-
-
