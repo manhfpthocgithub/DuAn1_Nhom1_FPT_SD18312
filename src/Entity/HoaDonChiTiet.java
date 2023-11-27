@@ -1,25 +1,38 @@
 package Entity;
 
 public class HoaDonChiTiet {
+
     private int MaHDCT;
     private int MaHD;
-    private String MaAoKhoac;
+    private String MaSPCT;
     private int SoLuongHDCT;
     private float DonGiaHDCT;
+    private float ThanhTien;
     private boolean TrangThaiHDCT;
 
     public HoaDonChiTiet() {
     }
 
-    public HoaDonChiTiet(int MaHDCT, int MaHD, String MaAoKhoac, int SoLuongHDCT, float DonGiaHDCT, boolean TrangThaiHDCT) {
+    public HoaDonChiTiet(int MaHDCT, int MaHD, String MaSPCT, int SoLuongHDCT, float DonGiaHDCT, float ThanhTien, boolean TrangThaiHDCT) {
         this.MaHDCT = MaHDCT;
         this.MaHD = MaHD;
-        this.MaAoKhoac = MaAoKhoac;
+        this.MaSPCT = MaSPCT;
         this.SoLuongHDCT = SoLuongHDCT;
         this.DonGiaHDCT = DonGiaHDCT;
+        this.ThanhTien = ThanhTien;
         this.TrangThaiHDCT = TrangThaiHDCT;
     }
 
+    public HoaDonChiTiet(int MaHD, String MaSPCT, int SoLuongHDCT, float DonGiaHDCT, float ThanhTien, boolean TrangThaiHDCT) {
+        this.MaHD = MaHD;
+        this.MaSPCT = MaSPCT;
+        this.SoLuongHDCT = SoLuongHDCT;
+        this.DonGiaHDCT = DonGiaHDCT;
+        this.ThanhTien = ThanhTien;
+        this.TrangThaiHDCT = TrangThaiHDCT;
+    }
+
+    
     public int getMaHDCT() {
         return MaHDCT;
     }
@@ -36,12 +49,20 @@ public class HoaDonChiTiet {
         this.MaHD = MaHD;
     }
 
-    public String getMaAoKhoac() {
-        return MaAoKhoac;
+    public String getMaSPCT() {
+        return MaSPCT;
     }
 
-    public void setMaAoKhoac(String MaAoKhoac) {
-        this.MaAoKhoac = MaAoKhoac;
+    public void setMaSPCT(String MaSPCT) {
+        this.MaSPCT = MaSPCT;
+    }
+
+    public float getThanhTien() {
+        return ThanhTien;
+    }
+
+    public void setThanhTien(float ThanhTien) {
+        this.ThanhTien = ThanhTien;
     }
 
     public int getSoLuongHDCT() {
@@ -68,11 +89,8 @@ public class HoaDonChiTiet {
         this.TrangThaiHDCT = TrangThaiHDCT;
     }
 
-    @Override
-    public String toString() {
-        return "HoaDonChiTiet{" + "MaHDCT=" + MaHDCT + ", MaHD=" + MaHD + ", MaAoKhoac=" + MaAoKhoac + ", SoLuongHDCT=" + SoLuongHDCT + ", DonGiaHDCT=" + DonGiaHDCT + ", TrangThaiHDCT=" + TrangThaiHDCT + '}';
-    }
     
-    
-    
+
+   
+
 }

@@ -7,12 +7,16 @@ import java.util.List;
 import java.sql.*;
 
 public class HoaDonChiTietDAO extends DuAn1DAO1<HoaDonChiTiet, Integer> {
-    final String INSERT_SQL = "INSERT INTO tblPhieuDoiHang (MaKhachHang, MaHoaDon, NgayDoiHang, TienDaThanhToan, LyDoDoiHang) VALUES(?, ?, ?, ?,?)";
-    final String UPDATE_SQL = "UPDATE ChuyenDe SET TenCD = ?,HocPhi = ?,ThoiLuong = ?,Hinh = ?,MoTa = ? WHERE MaCD = ?";
+
+    final String INSERT_SQL = "INSERT INTO tblHoaDonChiTiet\n"
+            + "             (MaHoaDon, MaSPCT, SoLuongHDCT, DonGiaHDCT, ThanhTienHDCT, TrangThaiHDCT)\n"
+            + "VALUES (?,?,?,?,?,1)";
+    final String UPDATE_SQL = "UPDATE tblHoaDonChiTiet\n"
+            + "SET MaHoaDon =?, MaSPCT =?, SoLuongHDCT =?, DonGiaHDCT =?, ThanhTienHDCT =? WHERE MaHoaDonChiTiet =?";
     final String DELETE_SQL = "DELETE FROM tblPhieuDoiHang WHERE MaPhieuDoiHang = ?";
     final String SELECTALL_SQL = "SELECT * FROM tblHoaDonChiTiet";
     final String SELECTBYID_SQL = "SELECT * FROM tblHoaDonChiTiet WHERE MaHoaDon = ?";
-    
+
     @Override
     public List<HoaDonChiTiet> selectAll() {
         return selectBySql(SELECTALL_SQL);
@@ -22,6 +26,7 @@ public class HoaDonChiTietDAO extends DuAn1DAO1<HoaDonChiTiet, Integer> {
         String sql = "SELECT * FROM tblHoaDonChiTiet WHERE MaHoaDon = ? ";
         return this.selectBySql(sql, ma);
     }
+
     @Override
     public HoaDonChiTiet selectById(Integer key) {
         List<HoaDonChiTiet> list = selectBySql(SELECTBYID_SQL, key);
@@ -38,29 +43,34 @@ public class HoaDonChiTietDAO extends DuAn1DAO1<HoaDonChiTiet, Integer> {
             ResultSet rs = JDBCHelper.executeQuery(sql, args);
             while (rs.next()) {
                 HoaDonChiTiet entity = new HoaDonChiTiet();
-                entity.setMaHDCT(rs.getInt("MaHoaDonChiTiet"));
-                entity.setMaHD(rs.getInt("MaHoaDon"));
-                entity.setMaAoKhoac(rs.getString("MaAoKhoac"));
-                entity.setSoLuongHDCT(rs.getInt("SoLuongHDCT"));
-                entity.setDonGiaHDCT(rs.getFloat("DonGiaHDCT"));
-                entity.setTrangThaiHDCT(rs.getBoolean("TrangThaiHDCT"));
+                entity.setMaHDCT(rs.getInt(1));
+                entity.setMaHD(rs.getInt(2));
+                entity.setMaSPCT(rs.getString(3));
+                entity.setSoLuongHDCT(rs.getInt(4));
+                entity.setDonGiaHDCT(rs.getFloat(5));
+                entity.setThanhTien(rs.getFloat(6));
+                entity.setTrangThaiHDCT(rs.getBoolean(7));
                 list.add(entity);
             }
         } catch (Exception e) {
             System.out.println(e);
-        } 
+        }
         return list;
     }
 
     @Override
     public int insert(HoaDonChiTiet entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return JDBCHelper.executeUpdate(INSERT_SQL, entity.getMaHD(), entity.getMaSPCT(), entity.getSoLuongHDCT(), entity.getDonGiaHDCT(), entity.getThanhTien());
     }
 
     @Override
     public int update(HoaDonChiTiet entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return JDBCHelper.executeUpdate(UPDATE_SQL, entity.getMaHD(), entity.getMaSPCT(), entity.getSoLuongHDCT(), entity.getDonGiaHDCT(), entity.getThanhTien(), entity.getMaHDCT());
     }
-    
-}
 
+    public int updateHDCTSP(int soLuong, float thanhTien, int maHDCT) {
+        String sql = "UPDATE tblHoaDonChiTiet SET SoLuongHDCT =? , ThanhTienHDCT=? WHERE MaHoaDonChiTiet = ?";
+        return JDBCHelper.executeUpdate(sql, soLuong, thanhTien, maHDCT);
+    }
+
+}

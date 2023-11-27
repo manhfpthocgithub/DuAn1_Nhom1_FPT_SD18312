@@ -160,14 +160,24 @@ public class AoKhoacMuaDongDAO extends DuAn1DAO1<AoKhoacMuaDong, String> {
         }
         return null;
     }
-    
-    public boolean kiemTraTenAoKhoac(String tenAo){
+
+    public boolean kiemTraTenAoKhoac(String tenAo) {
         String sql = "SELECT * FROM tblAoKhoacMuaDong WHERE TenAoKhoac = ? AND TrangThai=N'Đang hoạt động'";
         List<AoKhoacMuaDong> list = selectBySql(sql, tenAo);
-        if(list.isEmpty()){
-            return true ;
+        if (list.isEmpty()) {
+            return true;
         }
-        
-        return false ;
+
+        return false;
+    }
+
+    public AoKhoacMuaDong getAoKhoacTheoCTSP(String maCTSP) {
+        String sql = "SELECT * FROM tblAoKhoacMuaDong AKMD JOIN tblChiTietSanPham CTSP ON AKMD.MaAoKhoac = CTSP.MaAoKhoac\n"
+                + "WHERE CTSP.MaSPCT = ?";
+        List<AoKhoacMuaDong> list = this.selectBySql(sql, maCTSP);
+        if (list.isEmpty()) {
+            return null;
+        }
+        return list.get(0);
     }
 }

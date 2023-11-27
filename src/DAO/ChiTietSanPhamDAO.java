@@ -147,4 +147,9 @@ public class ChiTietSanPhamDAO extends DuAn1DAO1<ChiTietSanPham, String> {
     public int updateTT(String maSPCT) {
         return JDBCHelper.executeUpdate(UPDATE_SQL_TT, maSPCT);
     }
+
+    public void updateCTSPSL(int soLuong, String spct) {
+        String sql = "UPDATE tblChiTietSanPham set SoLuongAK = ? WHERE MaSPCT = ?";
+        JDBCHelper.executeUpdate(sql, soLuong, spct);
+    }
 }

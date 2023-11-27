@@ -4,15 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/F:/bai25/DuAn1_Nhom1/src/main/Main.java</file>
-            <file>file:/F:/bai25/DuAn1_Nhom1/src/DAO/HoaDonDAO.java</file>
-            <file>file:/F:/bai25/DuAn1_Nhom1/src/DAO/SanPhamHoaDonDAO.java</file>
             <file>file:/F:/bai25/DuAn1_Nhom1/src/DAO/AoKhoacMuaDongDAO.java</file>
-            <file>file:/F:/bai25/DuAn1_Nhom1/src/View/SanPhamMoiJPanel.java</file>
+            <file>file:/F:/bai25/DuAn1_Nhom1/src/DAO/PhieuGiamGiaDAO.java</file>
             <file>file:/F:/bai25/DuAn1_Nhom1/src/DAO/ChiTietSanPhamDAO.java</file>
             <file>file:/F:/bai25/DuAn1_Nhom1/src/View/HoaDonJpanel.java</file>
             <file>file:/F:/bai25/DuAn1_Nhom1/src/View/DangNhapJDialog.java</file>
-            <file>file:/F:/bai25/DuAn1_Nhom1/src/View/PhieuGiamGiaJPanel.java</file>
-            <file>file:/F:/bai25/DuAn1_Nhom1/src/Entity/SanPhamHoaDon.java</file>
+            <file>file:/F:/bai25/DuAn1_Nhom1/src/Entity/HoaDonChiTiet.java</file>
+            <file>file:/F:/bai25/DuAn1_Nhom1/src/DAO/HoaDonChiTietDAO.java</file>
         </group>
     </open-files>
 </project-private>
